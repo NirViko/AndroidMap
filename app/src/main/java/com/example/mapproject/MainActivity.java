@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button moveToMap;
+    private Button nevigateBtn;
+    private Button nearbyBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i =new Intent(MainActivity.this,MainActivity2.class);
+                startActivity(i);
+            }
+        });
+
+        nevigateBtn =(Button)findViewById(R.id.nevigationbtn);
+        nevigateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(MainActivity.this,Nevigation.class);
+                startActivity(i);
+            }
+        });
+
+        nearbyBtn =(Button)findViewById(R.id.nearbybtn);
+        nearbyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(MainActivity.this,MainActivity3.class);
                 startActivity(i);
             }
         });
