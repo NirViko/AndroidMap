@@ -15,14 +15,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        moveToMap =(Button)findViewById(R.id.button);
-        moveToMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i =new Intent(MainActivity.this,MainActivity2.class);
-                startActivity(i);
-            }
-        });
+//        moveToMap =(Button)findViewById(R.id.button);
+//        moveToMap.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i =new Intent(MainActivity.this,MainActivity2.class);
+//                startActivity(i);
+//            }
+//        });
 
         nevigateBtn =(Button)findViewById(R.id.nevigationbtn);
         nevigateBtn.setOnClickListener(new View.OnClickListener() {

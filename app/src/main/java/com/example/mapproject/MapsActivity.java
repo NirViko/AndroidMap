@@ -70,7 +70,7 @@ public class MapsActivity extends FragmentActivity implements
 
     public void onClick(View v){
 
-        String hospital = "hospital", school = "school", restaurants = "restaurant";
+        String hospital = "hospital", school = "school", restaurants = "restaurant", atm = "atm";
         Object transferData[] = new Object[2];
         GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
 
@@ -94,14 +94,17 @@ public class MapsActivity extends FragmentActivity implements
                             for(int i = 0; i<addressList.size(); i++){
                                 Address userAddress = addressList.get(i);
                                 LatLng latLng = new LatLng(userAddress.getLatitude(), userAddress.getLongitude());
-
+                                //Changed
+                                latitude = userAddress.getLatitude();
+                                longitude = userAddress.getLongitude();
+                                //
                                 userMarkerOptions.position(latLng);
                                 userMarkerOptions.title(address);
                                 userMarkerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
 
                                 mMap.addMarker(userMarkerOptions);
                                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                                mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
                             }
                         }
                         else{
@@ -148,6 +151,17 @@ public class MapsActivity extends FragmentActivity implements
                 getNearbyPlaces.execute(transferData);
                 Toast.makeText(this, "Searching for nearby restaurants", Toast.LENGTH_SHORT).show();
                 Toast.makeText(this, "Showing nearby restaurants", Toast.LENGTH_SHORT).show();
+                break;
+
+            case  R.id.atm_nearby:
+                mMap.clear();
+                url = getUrl(latitude, longitude, atm);
+                transferData[0] = mMap;
+                transferData[1] = url;
+
+                getNearbyPlaces.execute(transferData);
+                Toast.makeText(this, "Searching for nearby ATM", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Showing nearby ATM", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -243,7 +257,7 @@ public class MapsActivity extends FragmentActivity implements
         currentUserLocationMarker = mMap.addMarker(markerOptions);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(12));
+        mMap.animateCamera(CameraUpdateFactory.zoomBy(14));
 
         if (googleApiClient != null){
             LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);

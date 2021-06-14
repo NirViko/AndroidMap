@@ -51,18 +51,18 @@
 
         <ImageButton
             android:id="@+id/hospitals_nearby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentTop="false"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="7dp"
             android:onClick="onClick"
             android:src="@mipmap/hospital" />
 
         <ImageButton
             android:id="@+id/schools_nearby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/hospitals_nearby"
             android:src="@mipmap/school"
@@ -71,13 +71,23 @@
 
         <ImageButton
             android:id="@+id/restaurants_nearby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/schools_nearby"
             android:src="@mipmap/restaurant"
             android:onClick="onClick"
             android:layout_toRightOf="@+id/schools_nearby" />
+
+        <ImageButton
+            android:id="@+id/atm_nearby"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/restaurants_nearby"
+            android:src="@mipmap/atm"
+            android:onClick="onClick"
+            android:layout_toRightOf="@+id/restaurants_nearby" />
 
     </RelativeLayout>
 
