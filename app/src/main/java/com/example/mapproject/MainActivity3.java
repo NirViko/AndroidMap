@@ -6,10 +6,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import com.google.android.gms.maps.GoogleMap;
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Telephony;
@@ -64,7 +66,7 @@ public class MainActivity3 extends AppCompatActivity implements OnMapReadyCallba
         btFind = findViewById(R.id.bt_find2);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.google_map);
+                .findFragmentById(R.id.google_map2);
 
         String[] placeTypeList = {"atm", "bank", "hospital", "movie_theater", "restaurant"};
         String[] placeNameList = {"ATM", "Bank", "Hospital", "Movie Theater", "Restaurant"};
@@ -98,9 +100,13 @@ public class MainActivity3 extends AppCompatActivity implements OnMapReadyCallba
                 System.out.println(url);
 
 
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=restaurants");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
 
 
-                new PlaceTask().execute(url);
+//                new PlaceTask().execute(url);
 
             }
         });
