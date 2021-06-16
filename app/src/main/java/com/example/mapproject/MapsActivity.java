@@ -257,7 +257,7 @@ public class MapsActivity extends FragmentActivity implements
         currentUserLocationMarker = mMap.addMarker(markerOptions);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(14));
+        mMap.animateCamera(CameraUpdateFactory.zoomBy(12));
 
         if (googleApiClient != null){
             LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
